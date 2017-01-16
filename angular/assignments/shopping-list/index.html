@@ -12,12 +12,9 @@
         color: red;
         font-size: 1.2em;
       }
-      li {
+      li, .toBuyItem {
         margin-bottom: 7px;
         font-size: 1.2em;
-      }
-      li > button {
-        margin-left: 6px;
       }
       button > span {
         color: green;
@@ -33,7 +30,7 @@
     <!-- To Buy List -->
     <div class="col-md-6" ng-controller="ToBuyController as toBuy">
      <h2>To Buy:</h2>
-       <div ng-repeat="item in toBuy.items">
+       <div class="toBuyItem" ng-repeat="item in toBuy.items">
 				<button class="btn btn-default" ng-click="toBuy.buyItem($index);">
 					<span class="glyphicon glyphicon-ok"></span> Bought
 				</button>
