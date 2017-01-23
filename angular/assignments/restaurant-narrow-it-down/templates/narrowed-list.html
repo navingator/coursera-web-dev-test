@@ -1,0 +1,20 @@
+<table ng-show="foundItems.length > 0" class="table table-hover">
+	<thead>
+		<tr>
+			<th>Item</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in foundItems">
+			<td>{{ item.shortName }}</td>
+			<td>{{ item.name }}</td>
+			<td>{{ item.description }}</td>
+			<td><button class="btn btn-default" ng-click="onRemove({ index: $index })">Don't want this one!</button></td>
+		</tr>
+	</tbody>
+</table>
+
+<div ng-if="foundItems.error" class="error">{{ foundItems.error }}</div>
