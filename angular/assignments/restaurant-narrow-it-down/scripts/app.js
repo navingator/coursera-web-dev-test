@@ -47,20 +47,24 @@
 			
 			searchServ.items = [];
 			
-			$http({
-				method: 'GET',
-				url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
-			})
-			.then (function success(response) {
-				
-				searchTerm = searchTerm.toLowerCase();
-				var menuItems = response.data.menu_items;
-				searchMenuItems(menuItems, searchTerm); // adds items to searchServ.items
-				
-			}, function error(response) {
-				console.log(response); // log the response upon error
-				searchServ.items.error = 'Error retrieving items';
-			});
+			if (searchTerm.length > 0) {
+				$http({
+					method: 'GET',
+					url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
+				})
+				.then (function success(response) {
+					
+					searchTerm = searchTerm.toLowerCase();
+					var menuItems = response.data.menu_items;
+					searchMenuItems(menuItems, searchTerm); // adds items to searchServ.items
+					
+				}, function error(response) {
+					console.log(response); // log the response upon error
+					searchServ.items.error = 'Error retrieving items. Check your internet connection.';
+				});
+			} else {
+				searchServ.items.error='Nothing Found';
+			}
 			return searchServ.items;
 		};
 		
