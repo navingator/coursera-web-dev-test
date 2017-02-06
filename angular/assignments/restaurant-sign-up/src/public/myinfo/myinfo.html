@@ -1,17 +1,21 @@
 <div class="container">
-  <h2>About Me</h2>
-  <div id="info-name">
-    {{ myInfoCtrl.user.firstName }} {{ myInfoCtrl.user.lastName}}
+  <div ng-if="myInfoCtrl.user" class="main-content">
+    <h2>About Me</h2>
+    <div id="info-name">
+      {{ myInfoCtrl.user.firstName }} {{ myInfoCtrl.user.lastName}}
+    </div>
+    <div class="info-detail">
+      {{ myInfoCtrl.user.email}}
+    </div>
+    <div class="info-detail">
+      {{ myInfoCtrl.user.phone}}
+    </div>
+    <div class="info-title">
+      <h2>My Favorite Item</h2>
+      <menu-item menu-item="myInfoCtrl.user.favoriteItem"></menu-item>
+    </div>
   </div>
-  <div class="info-detail">
-    {{ myInfoCtrl.user.email}}
-  </div>
-  <div class="info-detail">
-    {{ myInfoCtrl.user.phone}}
-  </div>
-
-  <div class="info-title">
-    <h2>My Favorite Item</h2>
-    <menu-item menu-item="myInfoCtrl.user.favoriteItem"></menu-item>
+  <div ng-if="!(myInfoCtrl.user)">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
   </div>
 </div>
