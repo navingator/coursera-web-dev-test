@@ -10,9 +10,12 @@ function SignUpController(MenuService, UserService, $q) {
   $ctrl.submit = function () {
     MenuService.getMenuItem($ctrl.favoriteShortName).then(function (response) {
       if ($ctrl.favoriteShortName === response.short_name) {
+        console.log(response);
         $ctrl.user.favoriteItem = response;
         UserService.storeUser($ctrl.user);
         $ctrl.saved = true;
+      } else {
+        $ctrl.saved = false;
       }
     });
   };
