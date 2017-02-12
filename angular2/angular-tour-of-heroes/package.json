@@ -32,7 +32,6 @@
     "@angular/platform-browser": "~2.4.0",
     "@angular/platform-browser-dynamic": "~2.4.0",
     "@angular/router": "~3.4.0",
-
     "angular-in-memory-web-api": "~0.2.4",
     "systemjs": "0.19.40",
     "core-js": "^2.4.1",
@@ -43,7 +42,7 @@
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
     "ntypescript": "~1.201609302242.1",
-
+    "@types/node": "~4.2.2",
     "canonical-path": "0.0.2",
     "tslint": "^3.15.1",
     "lodash": "^4.16.4",
